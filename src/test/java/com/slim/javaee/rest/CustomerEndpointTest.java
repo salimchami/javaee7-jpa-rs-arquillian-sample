@@ -20,7 +20,6 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.File;
@@ -84,7 +83,7 @@ public class CustomerEndpointTest {
 
 		//        When
 		final Response response = invocation.invoke();
-        Customer result = response.readEntity(new GenericType<Customer>(){});
+        Customer result = response.readEntity(Customer.class);
 
 
 		//        Then
@@ -93,8 +92,8 @@ public class CustomerEndpointTest {
 		assertEquals(MediaType.APPLICATION_JSON, response.getMediaType().toString());
 
 		assertNotNull(result);
-		assertEquals("the version must equals 1", 1, result.getVersion());
-		assertEquals("the name must be 'client'", "client", result.getName());
+		assertEquals("the version must equals to 1", 1, result.getVersion());
+		assertEquals("the name must be equals to 'client'", "client", result.getName());
 
 	}
 }

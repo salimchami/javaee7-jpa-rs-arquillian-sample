@@ -4,8 +4,8 @@ import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
 /**
- * Configures a JAX-RS endpoint. Delete this class, if you are not exposing
- * JAX-RS resources in your application.
+ * Configuration of JAX-RS endpoints.
+ * @author Salim CHAMI salim.chami@protonmail.com
  *
  */
 @ApplicationPath("api")

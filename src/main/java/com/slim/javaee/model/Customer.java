@@ -1,25 +1,22 @@
 package com.slim.javaee.model;
 
-import javax.persistence.Entity;
-import java.io.Serializable;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Column;
-import javax.persistence.Version;
-import java.util.Date;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
+import java.util.Date;
 
+
+/**
+ * @author Salim CHAMI salim.chami@protonmail.com
+ */
 @Entity
 @XmlRootElement
-public class Client implements Serializable {
+public class Customer implements Serializable {
 
 
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 
@@ -34,10 +31,10 @@ public class Client implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date date;
 
-	public Client() {
+	public Customer() {
 	}
 
-	public Client(int version, String name, Date date) {
+	public Customer(int version, String name, Date date) {
 		this.version = version;
 		this.name = name;
 		this.date = date;
@@ -64,10 +61,10 @@ public class Client implements Serializable {
 		if (this == obj) {
 			return true;
 		}
-		if (!(obj instanceof Client)) {
+		if (!(obj instanceof Customer)) {
 			return false;
 		}
-		Client other = (Client) obj;
+		Customer other = (Customer) obj;
 		if (id != null) {
 			if (!id.equals(other.id)) {
 				return false;

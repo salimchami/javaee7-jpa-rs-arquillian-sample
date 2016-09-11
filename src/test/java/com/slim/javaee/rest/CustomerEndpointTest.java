@@ -29,6 +29,9 @@ import java.net.URL;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+/**
+ * @author Salim CHAMI salim.chami@protonmail.com
+ */
 @RunWith(Arquillian.class)
 public class CustomerEndpointTest {
 

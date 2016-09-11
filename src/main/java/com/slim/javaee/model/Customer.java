@@ -14,92 +14,90 @@ import java.util.Date;
 public class Customer implements Serializable {
 
 
-	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", updatable = false, nullable = false)
-	private Long id;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
+    private Long id;
 
-	@Version
-	@Column(name = "version")
-	private int version;
+    @Version
+    @Column(name = "version")
+    private int version;
 
-	@Column
-	private String name;
+    @Column
+    private String name;
 
-	@Column
-	@Temporal(TemporalType.DATE)
-	private Date date;
+    @Column
+    @Temporal(TemporalType.DATE)
+    private Date date;
 
-	public Customer() {
-	}
+    /**
+     * default constructor.
+     */
+    public Customer() {
+        //empty constructor
+    }
 
-	public Customer(int version, String name, Date date) {
-		this.version = version;
-		this.name = name;
-		this.date = date;
-	}
+    public Customer(int version, String name, Date date) {
+        this.version = version;
+        this.name = name;
+        this.date = date;
+    }
 
-	public Long getId() {
-		return this.id;
-	}
+    public Long getId() {
+        return this.id;
+    }
 
-	public void setId(final Long id) {
-		this.id = id;
-	}
+    public void setId(final Long id) {
+        this.id = id;
+    }
 
-	public int getVersion() {
-		return this.version;
-	}
+    public int getVersion() {
+        return this.version;
+    }
 
-	public void setVersion(final int version) {
-		this.version = version;
-	}
+    public void setVersion(final int version) {
+        this.version = version;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (!(obj instanceof Customer)) {
-			return false;
-		}
-		Customer other = (Customer) obj;
-		if (id != null) {
-			if (!id.equals(other.id)) {
-				return false;
-			}
-		}
-		return true;
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Customer)) {
+            return false;
+        }
+        Customer other = (Customer) obj;
+        return !(id != null && !id.equals(other.id));
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
 
-	public Date getDate() {
-		return date;
-	}
+    public Date getDate() {
+        return date;
+    }
 
-	public void setDate(Date date) {
-		this.date = date;
-	}
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
-	@Override
-	public String toString() {
-		String result = getClass().getSimpleName() + " ";
-		return result;
-	}
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + " ";
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 }

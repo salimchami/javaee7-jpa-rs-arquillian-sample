@@ -52,9 +52,7 @@ public class CustomerEndpointTest {
 				.getFile());
 		return ShrinkWrap
 				.create(WebArchive.class, "poc.war")
-				.addClass(Customer.class)
-				.addClass(CustomerEndpoint.class)
-				.addClass(JAXRSConfiguration.class)
+				.addPackages(true, "com.slim.javaee")
 				.addAsResource(persistenceFile, "META-INF/persistence.xml")
 				.addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
 	}
@@ -85,7 +83,6 @@ public class CustomerEndpointTest {
 		final Response response = invocation.invoke();
         Customer result = response.readEntity(Customer.class);
 
-
 		//        Then
 		assertEquals(fullRequestUrl, webTarget.getUri().toASCIIString());
 		assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
@@ -94,6 +91,5 @@ public class CustomerEndpointTest {
 		assertNotNull(result);
 		assertEquals("the version must equals to 1", 1, result.getVersion());
 		assertEquals("the name must be equals to 'client'", "client", result.getName());
-
 	}
 }

@@ -1,6 +1,8 @@
 package com.slim.javaee.rest;
 
 import com.slim.javaee.model.Customer;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,22 +21,26 @@ import java.util.Date;
 @Path("/clients")
 public class CustomerEndpoint {
 
-	@PersistenceContext(unitName = "poc-persistence-unit")
-	private EntityManager em;
+    private static final Logger LOGGER = LogManager.getLogger(CustomerEndpoint.class);
 
-	/**
-	 *
-	 */
-	@GET
-	@Path("/oneClient")
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Transactional
-	public Response getOneClient() {
-		Customer entity = new Customer(1, "client", new Date());
-		em.persist(entity);
-		return Response.ok(entity, MediaType.APPLICATION_JSON_TYPE).build();
-	}
+    @PersistenceContext(unitName = "poc-persistence-unit")
+    private EntityManager em;
+
+    /**
+     *
+     */
+    @GET
+    @Path("/oneClient")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Transactional
+    public Response getOneClient() {
+        LOGGER.debug("asking for a new customer...");
+        Customer entity = new Customer(1, "client", new Date());
+        em.persist(entity);
+        LOGGER.debug("New customer persisted.");
+        return Response.ok(entity, MediaType.APPLICATION_JSON_TYPE).build();
+    }
 
 
 }

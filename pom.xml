@@ -40,16 +40,14 @@
         </dependency>
 
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.7.21</version>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.6.2</version>
         </dependency>
-
         <dependency>
-            <groupId>dom4j</groupId>
-            <artifactId>dom4j</artifactId>
-            <version>1.6.1</version>
-            <scope>provided</scope>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.6.2</version>
         </dependency>
 
         <!-- The tutorials use the H2 in-memory database -->
@@ -160,7 +158,7 @@
                                 <artifactItem>
                                     <groupId>org.wildfly</groupId>
                                     <artifactId>wildfly-dist</artifactId>
-                                    <version>8.2.1.Final</version>
+                                    <version>10.0.0.Final</version>
                                     <type>zip</type>
                                     <overWrite>false</overWrite>
                                     <outputDirectory>target</outputDirectory>
@@ -180,8 +178,8 @@
                     <systemPropertyVariables>
                         <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
                         <!-- the maven dependency plugin will have already downloaded the server on /target -->
-                        <jboss.home>${project.basedir}/target/wildfly-8.2.1.Final</jboss.home>
-                        <module.path>${project.basedir}/target/wildfly-8.2.1.Final/modules</module.path>
+                        <jboss.home>${project.basedir}/target/wildfly-10.0.0.Final</jboss.home>
+                        <module.path>${project.basedir}/target/wildfly-10.0.0.Final/modules</module.path>
                     </systemPropertyVariables>
                     <redirectTestOutputToFile>false</redirectTestOutputToFile>
                 </configuration>

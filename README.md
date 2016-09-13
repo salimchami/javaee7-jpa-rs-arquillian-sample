@@ -8,6 +8,9 @@
    
 ### TODO : 
     
-   * add dates serializers (value based types) 
+   * Dates serializers (value based types) 
+   * Generic Jpa Repository
+   * Add Customer entity Repository (extends Generic Jpa Repository)
+   * Add Customer service for business logic
    * CRUD for REST operations
    * add Angular 2 application...

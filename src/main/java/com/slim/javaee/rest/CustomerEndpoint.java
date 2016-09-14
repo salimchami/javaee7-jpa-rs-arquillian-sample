@@ -36,7 +36,8 @@ public class CustomerEndpoint {
     @Transactional
     public Response getOneClient() {
         LOGGER.debug("asking for a new customer...");
-        Customer entity = new Customer(1, "client", new Date());
+        Customer entity = new Customer("client", new Date());
+        entity.setVersion(1);
         em.persist(entity);
         LOGGER.debug("New customer persisted.");
         return Response.ok(entity, MediaType.APPLICATION_JSON_TYPE).build();

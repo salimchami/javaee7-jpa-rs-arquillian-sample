@@ -1,4 +1,4 @@
-package com.slim.javaee.config;
+package com.slim.javaee.rest.config;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

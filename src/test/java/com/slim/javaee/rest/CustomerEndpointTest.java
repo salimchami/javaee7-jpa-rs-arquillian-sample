@@ -1,6 +1,6 @@
 package com.slim.javaee.rest;
 
-import com.slim.javaee.config.JAXRSConfiguration;
+import com.slim.javaee.rest.config.JAXRSConfiguration;
 import com.slim.javaee.model.Customer;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;

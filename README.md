@@ -14,3 +14,4 @@
    * Add Customer service for business logic
    * CRUD for REST operations
    * add Angular 2 application...
+   * Arquillian Glassfish support (now it's wildfly)

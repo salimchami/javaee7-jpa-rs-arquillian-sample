@@ -1,4 +1,4 @@
-package com.slim.javaee.model;
+package com.slim.javaee.core.model;
 
 import org.hibernate.annotations.Target;
 

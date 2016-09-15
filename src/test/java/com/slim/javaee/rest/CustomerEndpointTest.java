@@ -1,7 +1,7 @@
 package com.slim.javaee.rest;
 
 import com.slim.javaee.rest.config.JAXRSConfiguration;
-import com.slim.javaee.model.Customer;
+import com.slim.javaee.core.model.Customer;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jboss.arquillian.container.test.api.Deployment;
